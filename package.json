@@ -4,7 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "rm:reports": "rm reports/* || true",
+		"file": "cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=jsconfig.json --record --key 8df5adbc-d9ad-42c6-ac95-10e300434f77 --spec",
+		"regression": "cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=jsregression.json",
+		"regression:report": "cypress run --browser chrome --reporter mochawesome --reporter-options reportDir=mochawesome-report,overwrite=false,html=false,json=true",
+		"report:xml": "jrm reports/regression-report.xml \"reports/*.xml\"",
+		"report:json": "mochawesome-merge mochawesome-report/*.json>mochawesome.json",
+		"report:html": "marge mochawesome.json",
+		"report:cucumber": "node cucumber-formatter/cucumber-html-report.js",
+		"prettier:write": "npx prettier --write cypress",
+		"prettier:check": "npx prettier --check cypress",
+		"lint:check": "npx eslint cypress",
+		"lint:fix": "npx eslint --fix cypress"
   },
   "author": "",
   "license": "ISC",
