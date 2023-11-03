@@ -1,9 +1,13 @@
 
 Cypress.Commands.add('newAccount', ()=>{
-    cy.get('#firstName').type('Julian')
-    cy.get('#lastName').type('Santamarta')
-    cy.get('#email').type('example-email3@gmail.com')
-    cy.get('#password').type('MyPassword99')
+
+    cy.fixture("DOM/newUser").then((the)=>{
+        // Type valid credentials in 'Create account' form
+        cy.get(the.username.input).type(the.data.valid)
+        cy.get(the.lastName.input).type(the.data.valid)
+        cy.get(the.email.input).type(the.data.valid)
+        cy.get(the.password.input).type(the.data.valid)
+    })
 })
 
 Cypress.Commands.add('login', ()=>{

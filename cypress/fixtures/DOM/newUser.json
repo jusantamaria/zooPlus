@@ -1,0 +1,27 @@
+{
+    "username":{
+            "input":"#firstName",
+            "data": {
+                "valid":"Julian"
+            }
+        },
+    "lastName":{
+            "input":"#lastName",
+            "data":{
+                "valid":"Santamaria"
+            }
+        },
+    "email":{
+            "input": "#email",
+            "data":{
+                "valid": "jbattaglini97@gmail.com",
+                "invalid":"jbattaglini97gmail.com"
+            }
+        },
+    "password":{
+            "input":"#password",
+            "data":{
+                "valid":"MyPassword99"
+            }
+        }
+}

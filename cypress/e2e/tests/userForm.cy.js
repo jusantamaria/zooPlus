@@ -7,7 +7,7 @@ cy.url('contains','/account/overview')}
 
 
 describe('Validate account form', () => {
-    beforeEach('Visit de website under test',()=>{
+    beforeEach('Precondition: Visit the website under test',()=>{
         cy.visit('/')
         acceptCookies();
         cy.get('.TopBar-module_topBar__bavkr').should('be.visible')
