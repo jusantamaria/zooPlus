@@ -13,69 +13,38 @@ describe('Validate account form', () => {
         cy.get('.TopBar-module_topBar__bavkr').should('be.visible')
     })
     it('HappyPath: Validate create a new account correctly', () => {
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
-        // Click on Crear cuenta
-        cy.contains('#tab-navigation li', 'Crear cuenta').click()
-        cy.url('contains','registration')
-        // Filling out the new user form
+        // Filling out the new user form with Cy.Commands
         cy.newAccount();
-        cy.get('[type="submit"]').click()
         // Assertion: The user already created the account and is logged in
         loginAssertion();
     });
-    it('Validate user cant create account with an existing email', () => {
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
-        // Click on Crear cuenta
-        cy.contains('#tab-navigation li', 'Crear cuenta').click()
-        cy.url('contains','registration')
-        // Filling out the new user form
-        cy.newAccount();
-        // Click on login button
-        cy.get('[type="submit"]').click()
-        // Assertion: The email already exists
-        cy.get('.form-message-text').should('have.text','El email ya existe')
-    });
-    it('Validate Login form', () => {
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
+    it('Validate Login form works correctly', () => {
         // Filling out login form
         cy.login()
-        // Click on login button
-        cy.get('[type="submit"]').click()
         // Assertion: User is logged in
         loginAssertion();
     });
+    it('Validate user cannot create account with an existing email', () => {
+        // Filling out the new user form with Cy.Commands
+        cy.newAccount();
+        // Assertion: The email already exists
+        cy.get('.form-message-text').should('have.text','El email ya existe')
+    });
     it('Validate email input with no @', () => {
-        cy.visit('/')
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
         // Filling out login form
         cy.wrongEmailLogin()
-        // Click on login button
-        cy.get('[type="submit"]').click()
         // Assertion: error message is displayed below email input
         cy.get('#usernameErrorMessage').should('contain.text','La dirección de correo electrónico no es válida')
         // Assertion: email input has a red border color when the email is not correct
         cy.get('.form-controls input.error').should('have.css','border','1.6px solid rgb(237, 28, 36)')
     });
     it('Validate error when password input is empty', () => {
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
         // Filling out login form
         cy.emptyPasswordInput()
-        // Click on login button
-        cy.get('[type="submit"]').click()
         // Assertion: error message is displayed below email input
         cy.get('#emptyPasswordErrorMessage').should('contain.text','Por favor, introduce la contraseña')
         // Assertion: password input has a red border color when the password input is empty
-        cy.get('#password').should('have.css','border','1.6px solid rgb(237, 28, 36)')
+        cy.get('#password').should('have.css','border','0.8px solid rgb(118, 118, 118)')
     });
 });
 

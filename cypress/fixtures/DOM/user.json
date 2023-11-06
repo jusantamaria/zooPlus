@@ -1,6 +1,8 @@
 {
+    "button":"[type='submit']",
+    "firstNameInput":"#firstName",
     "username":{
-            "input":"#firstName",
+            "input":"#username",
             "data": {
                 "valid":"Julian"
             }
@@ -14,8 +16,8 @@
     "email":{
             "input": "#email",
             "data":{
-                "valid": "jbattaglini97@gmail.com",
-                "invalid":"jbattaglini97gmail.com"
+                "valid": "myexampleemail2@gmail.com",
+                "invalid":"myexampleemail1gmail.com"
             }
         },
     "password":{
