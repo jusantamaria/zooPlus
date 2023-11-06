@@ -47,3 +47,10 @@ Cypress.Commands.add('emptyPasswordInput', ()=>{
         cy.get(the.button).click()
     })
 })
+
+Cypress.Commands.add('APIassertionOK', () =>{
+    cy.request({
+        method: 'GET',
+        url: 'https://www.zooplus.es/account/overview'
+    }).then()
+})
