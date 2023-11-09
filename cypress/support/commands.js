@@ -1,3 +1,4 @@
+const acceptCookies = () =>{cy.get('#onetrust-accept-btn-handler').click()}
 
 Cypress.Commands.add('newAccount', ()=>{
 
@@ -18,15 +19,14 @@ Cypress.Commands.add('newAccount', ()=>{
 })
 
 Cypress.Commands.add('login', ()=>{
-    cy.fixture("DOM/user").then((the)=>{
-        // Click on My ZooPlus
-        cy.get('#shopHeaderAccountLink').click()
-        cy.url().should('contain','/auth')
-        // Type valid credentials in login form
-        cy.get(the.username.input).type(the.email.data.valid)
-        cy.get(the.password.input).type(the.password.data.valid)
-        cy.get(the.button).click()
-    })
+        cy.fixture("DOM/user").then((the)=>{
+            cy.get('#shopHeaderAccountLink').click()
+            cy.url().should('contain','/auth')
+            // Type valid credentials in login form
+            cy.get(the.username.input).type(the.email.data.valid)
+            cy.get(the.password.input).type(the.password.data.valid)
+            cy.get(the.button).click()
+        })    
 })
 Cypress.Commands.add('wrongEmailLogin', ()=>{
     cy.fixture("DOM/user").then((the)=>{
@@ -48,9 +48,18 @@ Cypress.Commands.add('emptyPasswordInput', ()=>{
     })
 })
 
-Cypress.Commands.add('APIassertionOK', () =>{
-    cy.request({
-        method: 'GET',
-        url: 'https://www.zooplus.es/account/overview'
-    }).then()
+Cypress.Commands.add('APILoginTest', () =>{
+    cy.session('LoginZooPlus',()=>{
+        cy.visit('https://login.zooplus.es/')
+        acceptCookies();
+        cy.request({
+            method: 'POST',
+            url: "/auth",
+            form: true,
+            body:{
+                    username: 'myexampleemail10@gmail.com',
+                    password:'MyPassword99',
+                }
+        })
+    })
 })

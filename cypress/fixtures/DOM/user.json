@@ -16,7 +16,7 @@
     "email":{
             "input": "#email",
             "data":{
-                "valid": "myexampleemail2@gmail.com",
+                "valid": "myexampleemail11@gmail.com",
                 "invalid":"myexampleemail1gmail.com"
             }
         },

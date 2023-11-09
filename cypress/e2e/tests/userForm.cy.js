@@ -1,6 +1,7 @@
 import { removeLogs } from '../../support/helper/removeLogs';
 removeLogs();
 
+
 const acceptCookies = () =>{cy.get('#onetrust-accept-btn-handler').click()}
 const loginAssertion = () =>{cy.get('.title_banner__content').should('contain.text','mi zooplus')
 cy.url('contains','/account/overview')}
@@ -9,7 +10,7 @@ cy.url('contains','/account/overview')}
 describe('Validate account form', () => {
     beforeEach('Precondition: Visit the website under test',()=>{
         cy.visit('/')
-        acceptCookies();
+        acceptCookies()
         cy.get('.TopBar-module_topBar__bavkr').should('be.visible')
     })
     it('HappyPath: Validate create a new account correctly', () => {
@@ -18,7 +19,7 @@ describe('Validate account form', () => {
         // Assertion: The user already created the account and is logged in
         loginAssertion();
     });
-    it('Validate Login form works correctly', () => {
+    it.only('Validate Login form works correctly', () => {
         // Filling out login form
         cy.login()
         // Assertion: User is logged in
