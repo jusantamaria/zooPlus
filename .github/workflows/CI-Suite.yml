@@ -1,9 +1,9 @@
 #!ESTE ARCHIVO ES UN TEMPLATE, NO CAMBIARLO EN ABSOLUTO.
 #todo: Cambiar solamente lo que viene después de "(Run Cypress)"
 #todo: Utiliza el mismo nombre de la Historia de Usuario con su ID.
-name: 🧪Cypress In-Sprint Testing
+name: 🧪Cypress ZooPlus Workflow
 #todo: Solamente colocar el ID de la US que se va a correr. Cambiar el actual:
-run-name: ${{github.actor}}👨🏻‍🔬 ran TestSuite in ${{github.ref_name}}
+# run-name: ${{github.actor}}👨🏻‍🔬 ran TestSuite in ${{github.ref_name}}
 
 # on:
 #     push:
@@ -21,8 +21,8 @@ jobs:
         #todo: Aquí a continuación vamos a definir qué vamos a correr de Postman:
         steps:
             #* Este paso, copia y pega literalmente el repo que tenemos.
-            - name: 📘Checkout Repo
-              uses: actions/checkout@v4
+            - name: ZooPlus
+              uses: actions/PDP@v4
               #* el Name es opcional, e indica el nombre del Step. Uses es la dependencia.
 
             - name: 📦Set up Node.js
@@ -46,7 +46,7 @@ jobs:
               with:
                   browser: chrome
                   command: | #EDITAR AQUÍ EL ARCHIVO SUITE A EJECUTAR:
-                      npm run file cypress/e2e/tests/happyPath.cy.js
+                      npm run file cypress/e2e/tests/PDP.cy.js
 
             #* Esto es para guardar el reporte previamente generado y colocarlo en Github.
             - name: 📊Upload Artifact ☕Mochawesome HTML Report
