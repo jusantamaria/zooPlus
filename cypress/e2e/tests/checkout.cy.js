@@ -29,7 +29,7 @@ describe('Validate shopping cart', () => {
         cy.contains('Deshacer').click()
         cy.get('[data-zta="H1UIC"]').should('contain','Mi cesta')
     })
-    it.only('Validate user cannot proceed to checkout when the price is under 15 euros', () => {
+    it('Validate user cannot proceed to checkout when the price is under 15 euros', () => {
         cy.visit('/checkout/cart')
         cy.get('[data-zta="overviewSubTotalValue"]').invoke('text').then(($price) =>{
             const price = parseInt($price);

@@ -22,7 +22,7 @@ jobs:
         steps:
             #* Este paso, copia y pega literalmente el repo que tenemos.
             - name: ZooPlus
-              uses: actions/PDP@v4
+              uses: actions/zooplus@v4
               #* el Name es opcional, e indica el nombre del Step. Uses es la dependencia.
 
             - name: 📦Set up Node.js
