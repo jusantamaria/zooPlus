@@ -8,7 +8,7 @@ cy.get('#availableCouponsTab').should('be.visible')
 cy.get('#redeemedCouponsTab').should('be.visible')
 }
 
-describe('Validate account form', () => {
+describe('Validate coupons implementation', () => {
     beforeEach('Precondition: Visit the website under test and login',()=>{
         cy.session('Login',() =>{
             cy.visit('/')
@@ -38,5 +38,8 @@ describe('Validate account form', () => {
         cy.get('#acc-nav-menu-header').click()
         cy.get('[data-zta="account-navigation-coupons-link"]').click()
         couponsPageAssertion();
+    });
+    it('Validate user can add a discount to the shopping cart', () => {
+        
     });
 })

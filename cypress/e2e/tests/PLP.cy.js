@@ -1,6 +1,7 @@
 import '@testing-library/cypress/add-commands'
 import { removeLogs } from '../../support/helper/removeLogs';
 removeLogs();
+import 'cypress-map';
 
 
 const acceptCookies = () =>{cy.get('#onetrust-accept-btn-handler').click()}
@@ -31,4 +32,12 @@ describe('Validate adding products to shopping carts correctly', () => {
         cy.get('[data-testid="popoverWrapper"]').as('popUp').should('be.visible')
         cy.get('[data-zta="cart-feedback-icon"]').should('be.visible')
     });
+    it('Validate there are 24 products on the PLP', () => {
+        cy.visit('/shop/antiparasitarios/pipetas_antipulgas?layout=grid')
+        cy.get('[data-zta="product-box-grid"]')
+        .should('have.length.greaterThan', 0)
+        .its('length')
+        .should('equal',24)
+        .then(cy.log)
+    })
 });

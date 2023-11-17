@@ -31,7 +31,9 @@ describe('Validate shopping cart', () => {
     })
     it('Validate user cannot proceed to checkout when the price is under 15 euros', () => {
         cy.visit('/checkout/cart')
-        cy.get('[data-zta="overviewSubTotalValue"]').invoke('text').then(($price) =>{
+        cy.get('[data-zta="overviewSubTotalValue"]')
+        .invoke('text')
+        .then(($price) =>{
             const price = parseInt($price);
             const checkoutBtn = cy.get('[data-zta="gotoPreviewBottom"]');
 

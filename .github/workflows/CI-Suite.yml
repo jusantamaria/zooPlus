@@ -3,7 +3,7 @@
 #todo: Utiliza el mismo nombre de la Historia de Usuario con su ID.
 name: 🧪Cypress ZooPlus Workflow
 #todo: Solamente colocar el ID de la US que se va a correr. Cambiar el actual:
-# run-name: ${{github.actor}}👨🏻‍🔬 ran TestSuite in ${{github.ref_name}}
+run-name: CI Run for Zoo Plus client
 
 # on:
 #     push:
