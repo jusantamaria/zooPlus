@@ -63,3 +63,10 @@ Cypress.Commands.add('APILoginTest', () =>{
         })
     })
 })
+
+Cypress.Commands.add('addItemToCart', () => {
+    cy.visit('/shop/tienda_perros/pienso_perros')
+    cy.get('[data-zta="quantityStepperIncrementButton"]').first().click()
+    cy.get('[data-zta="quantityStepperInput"]').first().should('have.value','1')
+    cy.get('[data-zta="add-to-cart"]').first().click()
+})

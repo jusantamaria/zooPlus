@@ -1,0 +1,35 @@
+[
+    {
+        "animal":"Perro",
+        "nombre":"Pelusa",
+        "id":"1",
+        "raza":"Mestizo de raza mediana (10 a 20 kg)",
+        "edad":"4",
+        "vacuna":"Si"
+    },
+    {
+        "animal":"Gato",
+        "nombre":"Pulga",
+        "id":"2",
+        "raza":"Bengali",
+        "edad":"2",
+        "vacuna":"Si"
+    },
+    {
+        "animal":"Pez",
+        "nombre":"Tibu",
+        "id":"3",
+        "raza":"Golden Fish",
+        "edad":"1",
+        "vacuna":"No"
+    },
+    {
+        "animal":"Pequeños animales",
+        "nombre":"Toro",
+        "id":"4",
+        "raza":"hamaster",
+        "edad":"1",
+        "vacuna":"No"
+    }
+
+]

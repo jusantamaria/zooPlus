@@ -39,7 +39,5 @@ describe('Validate coupons implementation', () => {
         cy.get('[data-zta="account-navigation-coupons-link"]').click()
         couponsPageAssertion();
     });
-    it('Validate user can add a discount to the shopping cart', () => {
-        
-    });
+    
 })
