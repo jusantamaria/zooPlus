@@ -16,7 +16,9 @@
     "prettier:write": "npx prettier --write cypress",
     "prettier:check": "npx prettier --check cypress",
     "lint:check": "npx eslint cypress",
-    "lint:fix": "npx eslint --fix cypress"
+    "lint:fix": "npx eslint --fix cypress",
+    "test:headless:allure":"npx cypress run --env allure=true",
+    "allure:report":"allure generate allure-results"
   },
   "author": "Julian Santamaria",
   "license": "ISC",
@@ -26,6 +28,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "2.1.5",
     "@esbuild-plugins/node-modules-polyfill": "0.1.4",
     "@faker-js/faker": "7.6.0",
+    "@shelex/cypress-allure-plugin": "^2.40.0",
     "@testing-library/cypress": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "5.53.0",
     "@typescript-eslint/parser": "5.53.0",
